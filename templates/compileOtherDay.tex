@@ -1,0 +1,22 @@
+%
+% @author's Research Diary
+%	For date @DD-@Mon-@YYYY
+%
+\documentclass[openany,twoside,justified,notoc]{tufte-book}
+\usepackage{notebook}
+
+\def\two{\IfFileExists{@YYYY-@MM-@DD}
+			{ \openin\mysource=@YYYY-@MM-@DD.tex	%opens the file
+    				\read\mysource to \firstline			%reads the
+    				\closein\mysource
+    				\input{@YYYY-@MM-@DD}
+  			}{}}
+\edef\one{\noexpand\two}
+
+\begin{document}
+\title{Notebook\\ {\Large{DAY: @DD-@Mon-@YYYY}} }
+\author{@author}
+%\maketitle
+
+\one
+\end{document}

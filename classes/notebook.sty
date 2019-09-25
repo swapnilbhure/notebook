@@ -1,0 +1,78 @@
+\ProvidesPackage{notebook}
+%notoc: reverts the toc design to original latex design instead of tufte design
+%openany: starts the chapter from any page be it even or odd. tufte starts at odd by default
+%twoside: considers margin (if defined-here not defined) of two-sided printing
+\usepackage{lipsum}
+\usepackage{tikz}	%\foreach
+%\usepackage{ifthen}
+\usepackage{xifthen}	%\if
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{ragged2e}
+\usepackage{geometry}
+\geometry{
+  %showframe,	%creates box or text for the whole page and margin text seperately. Doesn't look good though.
+  paperwidth=8.27in,
+  paperheight=11.69in,
+  left=0.5in,
+  right=0.5in,
+  top=.5in,
+  bottom=1in,
+  % textwidth=120mm, 	% main text block
+  % The text width and height are calculated automatically.
+  marginparsep=0.2in,	% gutter between main text block and margin notes
+  marginparwidth=2.0in,	% width of margin notes
+  includemp,
+  includehead,
+  %bindingoffset=1cm		% uncomment for two sided printing
+}
+%\setcounter{secnumdepth}{3}	%adds chapter number before the chapter name at the beginning of the respective chapter
+\setcounter{tocdepth}{3}		%adds 3 levels of headings in the table of contents i.e chapter, section and sub-section
+
+%\renewcommand\normalsize{%
+%   \@setfontsize\normalsize{18}{22}%
+%   \abovedisplayskip 15\p@ \@plus4\p@ \@minus8\p@
+%   \abovedisplayshortskip \z@ \@plus4\p@
+%   \belowdisplayshortskip 8\p@ \@plus4\p@ \@minus3\p@
+%   \belowdisplayskip \abovedisplayskip
+%   \let\@listi\@listI}
+%\normalbaselineskip=22pt
+%\normalsize
+
+\renewcommand\huge{\@setfontsize\huge{18}{22}}
+\renewcommand\Huge{\@setfontsize\Huge{22}{28}}
+\usepackage{sectsty}
+\chapterfont{\huge\bfseries}
+\sectionfont{\LARGE\bfseries}
+\subsectionfont{\Large\bfseries}
+\usepackage{textcomp}
+\usepackage[normalem]{ulem}	%to strikethrough text. syntax \sout{Hello World}
+%\usepackage{xurl}			%didnot work see later. % to text wrap the url. https://tex.stackexchange.com/a/407368
+%\usepackage{algorithmic}		%for typesetting algorithms
+
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\bsec}{\begin{section}}
+\newcommand{\esec}{\end{section}}
+\newcommand{\fcbox}{\fcolorbox}%{red}{yellow}
+\newcommand{\bmini}{\minipage[t]{\dimexpr0.48\linewidth-2\fboxsep-2\fboxrule\relax}}
+\newcommand{\emini}{\endminipage\hfill}
+
+
+%\newenvironment{loggentry}[2]% date, heading
+%{\noindent\textbf{#2}\marginnote{#1}\par}{\vspace{0.5cm}}
+%\def\?#1{}
+
+
+\graphicspath{{./figures/}}
+
+%\newcommand{\writetitle}{0}
+%\newcommand{\mytitle}[1]
+%{   \ifthenelse{\writetitle=1}{#1}{}
+%}
+
+\newread\mysource
+
+\onehalfspacing

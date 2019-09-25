@@ -1,0 +1,33 @@
+%
+% @author's Research Diary
+%	For month @MM of the @YYYY
+%
+\documentclass[openany,twoside,justified,notoc]{tufte-book}
+\usepackage{notebook}
+
+\def\two{\IfFileExists{\Year-\Month-\Day}
+			{ \openin\mysource=\Year-\Month-\Day.tex	%opens the file
+    				\read\mysource to \firstline			%reads the
+    				\closein\mysource
+    				\input{\Year-\Month-\Day}
+  			}{}}
+\edef\one{\noexpand\two}
+
+\begin{document}
+\title{Notebook\\ {\Large{MONTH: @MM-@YYYY}}\\ \vspace*{\fill} \\ {\footnotesize{Compiled on: @tdate}}}
+\author{@author}
+\maketitle
+
+
+\tableofcontents
+\listoffigures
+
+\foreach \Year in {@YYYY}
+         { \foreach \Month in {@MM}
+           { \foreach \Day in {01,02,03,04,05,06,07,08,09,10,...,31}
+             {
+               	\one
+             }
+           }
+		}
+\end{document}

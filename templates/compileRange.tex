@@ -1,0 +1,113 @@
+%
+% @author's Research Diary
+%	From date range @sD-@sM-@sY to @eD-@eM-@eY
+%
+\documentclass[openany,twoside,justified,notoc]{tufte-book}
+\usepackage{notebook}
+
+\def\two{\IfFileExists{\Year/\Year-\Month-\Day}
+			{ \openin\mysource=\Year/\Year-\Month-\Day.tex	%opens the file
+    				\read\mysource to \firstline			%reads the
+    				\closein\mysource
+    				\input{\Year/\Year-\Month-\Day}
+  			}{}}
+\edef\one{\noexpand\two}
+
+%\pgfmathtruncatemacro{\StartYear}{2019} %not required anymore
+%\pgfmathtruncatemacro{\EndYear}{2020}	%not required anymore
+\begin{document}
+\title{Notebook\\ {\Large{RANGE: @sD-@sM-@sY to @eD-@eM-@eY}}\\ \vspace*{\fill} \\ {\footnotesize{Compiled on: @tdate}}}
+\author{Swapnil Bhure}
+\maketitle
+
+\tableofcontents
+\listoffigures
+
+\foreach \Year in {@sY,...,@eY}
+         { \foreach \Month [count=\Mon] in {Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec}
+           { \foreach \Day in {01,02,03,04,05,06,07,08,09,10,11,12...,31}
+             { \ifnum\Year=@sY
+               	\ifnum\Year=@eY
+					\ifnum\Mon=@sM
+						\ifnum\Mon=@eM
+							\ifnum\Day<@sD
+
+							\else
+								\ifnum\Day>@eD
+
+               					\else
+               						\one
+               					\fi
+               				\fi
+               			\else
+               				\ifnum\Day<@sD
+
+               				\else
+               					\one
+               				\fi
+               			\fi
+               		\else
+               			\ifnum\Mon=@eM
+               				\ifnum\Day>@eD
+
+               				\else
+               					\one
+               				\fi
+               			\else
+               				\ifnum\Mon>@sM
+               					\ifnum\Mon<@eM
+               						\expandafter \one
+               					\else
+
+               					\fi
+               				\else
+
+               				\fi
+               			\fi
+               		\fi
+				\else
+					\ifnum\Mon=@sM
+						\ifnum\Day<@sD
+
+						\else
+							\one
+						\fi
+					\else
+						\ifnum\Mon>@sM
+							\one
+						\else
+
+						\fi
+					\fi
+               	\fi
+               \else
+               	\ifnum\Year=@eY
+               		\ifnum\Mon=@eM
+						\ifnum\Day<@eD
+							\one
+						\else
+
+						\fi
+					\else
+						\ifnum\Mon<@eM
+							\one
+						\else
+
+						\fi
+					\fi
+				\else
+					\ifnum\Year>@sY
+						\ifnum\Year<@eY
+							\one
+						\else
+
+						\fi
+					\else
+
+					\fi
+				\fi
+               \fi
+              }
+             }
+           }
+\end{document}
