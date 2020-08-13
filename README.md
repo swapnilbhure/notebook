@@ -1,6 +1,6 @@
 # notebook
 
-A latex project that can be used as a notebook for a course or a research diary or a logbook. It is a great way to keep a track of all your daily research work or study diary. This is escpecially useful for anyone using linux as their primary operating system.
+A latex project that can be used as a notebook for a course or a research diary or a logbook. It is a great way to keep a track of all your daily research work or study diary. This is especially useful for anyone using linux as their primary operating system.
 
 Notes written on each day are stored as a seperate file. Even though a new file is created for each day, we can easily compile them files of each day or week or month or even a year with the help of simple single line command. Creating a new file and compilation is done through single line commands from terminal.
 
