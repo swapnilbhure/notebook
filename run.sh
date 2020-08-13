@@ -1,7 +1,9 @@
 #!/bin/bash
 
-myEditor="texmaker"
-myViewer="evince"
+myEditor="texmaker"	# you may choose a latex editor of your choice
+myViewer="evince"	# you may choose a pdf viewer of your choice
+author="Swapnil Bhure"	# enter your name here
+
 tYYYY=$(date +%G)
 tMon=$(date +%b)
 tMM=$(date +%m)
@@ -13,7 +15,6 @@ pdfDir="pdfs"
 figureDir="figures"
 filesDir="files"
 todaysFileName="$tYYYY-$tMM-$tDD.tex"
-author="Swapnil Bhure"
 notebookStyle="notebook.sty"
 Date="meh"
 monthToCompile="meh"
@@ -462,7 +463,7 @@ usage ()
 
     -m <MM>  Compile a month of the current year
 
-    -m <MM-YYYY>  Compile a month of an year
+    -M <MM-YYYY>  Compile a month of an year
 
     -y <YYYY>  Compile all entries of the year
 
