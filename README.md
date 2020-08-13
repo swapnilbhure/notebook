@@ -3,10 +3,14 @@
 A latex project that can be used as a notebook for a course or a research diary or a logbook. It is a great way to keep a track of all your daily research work or study diary. This is escpecially useful for anyone using linux as their primary operating system.
 
 Notes written on each day are stored as a seperate file. Even though a new file is created for each day, we can easily compile them files of each day or week or month or even a year with the help of simple single line command. Creating a new file and compilation is done through single line commands from terminal.
+
 Requirements:
 1. Latex editor. eg. [Texmaker](https://www.xm1math.net/texmaker/download.html)
-2. Pdf viewer. eg. [evince]()
+2. Pdf viewer. eg. evince
 
+Make these changes at line 3 and 4 in *run.sh* file.
+
+Note: Also, edit the author name in *run.sh* file on line 5, unless you want me to be the author of your notebook ;)
 
 To add a note for today:
 ```
